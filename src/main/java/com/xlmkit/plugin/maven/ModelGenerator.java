@@ -20,18 +20,21 @@ public class ModelGenerator {
 		super();
 		this.config = config;
 	}
-
+//	private String
 	public void run() throws Exception {
 		log.info("开始");
 		config.validate();
 		log.info("创建template");
 		JdbcTemplate template = JDBCUtils.createTemplate(config);
+		String tablesSql = "SELECT * FROM information_schema.TABLES WHERE table_schema=? AND "+config.getTableCondition();
+		List<JSONObject> tables = JDBCUtils.queryList(template, tablesSql,  JDBCUtils.dbName(config));
 
-		for (String tableName : config.getTableNames()) {
+		for (JSONObject tableItem : tables) {
+			String tableName = tableItem.getString("TABLE_NAME");
 			log.info("{}", tableName);
 			List<TypeInfo> columns = new ArrayList<TypeInfo>();
 			String sql = "select * FROM information_schema.columns  where table_name=? and table_schema=?";
-			List<JSONObject> list = JDBCUtils.queryList(template, sql, tableName, JDBCUtils.tableName(config));
+			List<JSONObject> list = JDBCUtils.queryList(template, sql, tableName, JDBCUtils.dbName(config));
 			for (JSONObject item : list) {
 				columns.add(MysqlTypeUtils.getType(config,item));
 			}
@@ -47,7 +50,7 @@ public class ModelGenerator {
 		}
 	}
 
-	public String modelJavaCode(String tableName, List<TypeInfo> columns) {
+	public String modelJavaCode(String tableName, List<TypeInfo> columns) throws Exception {
 		XStringBuilder sb = new XStringBuilder();
 
 		sb.append("package {};", config.getPackageName());
@@ -65,6 +68,10 @@ public class ModelGenerator {
 		sb.append("public class Abs{} {", tableName);
 		for (int i = 0; i < columns.size(); i++) {
 			TypeInfo column = columns.get(i);
+			sb.append("/**");
+			sb.append("*	{}", column.getCOLUMN_COMMENT());
+			sb.append("*/");
+			sb.append("");
 			if (column.getCOLUMN_NAME().equals("version")&&!column.getCOLUMN_COMMENT().contains("不生成@Version")) {
 				sb.append("@Version");
 			}
@@ -85,6 +92,6 @@ public class ModelGenerator {
 
 		sb.append("}");
 
-		return sb.toString();
+		return sb.toStringUseJavaFormat();
 	}
 }

@@ -71,16 +71,6 @@ public class AbstractModelGeneratorMojo extends AbstractMojo {
         config.setPackageName(packageName);
         config.setDistDirectory(new File(basePath,distPath));
         config.setBooleanGetterStartWidthIS(booleanGetterStartWidthIS);
-        config.setTableNames(Arrays.asList(//
-                "Website", //
-                "Feedback", //
-                "ActiveCode", //
-                "MapShare", //
-                "ParseRule", //
-                "Video", //
-                "VideoRecord", //
-                "User", //
-                "Collection"));
         ModelGenerator generator = new ModelGenerator(config);
         try {
             generator.run();

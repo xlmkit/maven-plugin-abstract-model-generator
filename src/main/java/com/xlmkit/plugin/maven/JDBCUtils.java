@@ -53,7 +53,7 @@ public class JDBCUtils {
 				config.getJdbcPassword());
 	}
 
-	public static String tableName(JDBCConfig config) {
+	public static String dbName(JDBCConfig config) {
 		String url = config.getJdbcUrl();
 		return HttpRequest.get(url).path().substring(1);
 	}

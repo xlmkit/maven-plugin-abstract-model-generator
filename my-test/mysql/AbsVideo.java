@@ -1,4 +1,5 @@
 package mysql;
+
 import java.util.Date;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,121 +9,255 @@ import javax.persistence.Version;
 import java.math.BigInteger;
 import java.math.BigDecimal;
 import java.util.Date;
+
 @MappedSuperclass
 public class AbsVideo {
-protected @Id @GeneratedValue(strategy = GenerationType.IDENTITY) long id = 0;
-protected Date createTime;
-protected long createUserId = 0;
-protected Date updateTime;
-protected long updateUserId = 0;
-protected int status = 1;
-protected String name = "";
-@Version
-protected long version = 0;
-protected String brand = "";
-protected String path = "";
-protected String no = "";
-protected String playUrl = "";
-protected String parser = "";
-protected String origin = "";
-protected String parseResult = "";
-protected String website = "";
-protected int playCount = 0;
-protected int quality = 0;
-protected int readyCount = 0;
-/**
-*	主键
-*/
+	/**
+	*	主键
+	*/
 
-public long getId(){return id;}
-/**
-*	创建时间
-*/
+	protected @Id @GeneratedValue(strategy = GenerationType.IDENTITY) long id = 0;
+	/**
+	*	创建时间
+	*/
 
-public Date getCreateTime(){return createTime;}
-/**
-*	创建者
-*/
+	protected Date createTime;
+	/**
+	*	创建者
+	*/
 
-public long getCreateUserId(){return createUserId;}
-/**
-*	更新时间
-*/
+	protected long createUserId = 0;
+	/**
+	*	更新时间
+	*/
 
-public Date getUpdateTime(){return updateTime;}
-/**
-*	更新者
-*/
+	protected Date updateTime;
+	/**
+	*	更新者
+	*/
 
-public long getUpdateUserId(){return updateUserId;}
-/**
-*	状态 1有效 0无效 -1作废
-*/
+	protected long updateUserId = 0;
+	/**
+	*	状态 1有效 0无效 -1作废
+	*/
 
-public int getStatus(){return status;}
-/**
-*	姓名
-*/
+	protected int status = 1;
+	/**
+	*	姓名
+	*/
 
-public String getName(){return name;}
-/**
-*	版本号
-*/
+	protected String name = "";
+	/**
+	*	版本号
+	*/
 
-public long getVersion(){return version;}
-/**
-*	
-*/
+	@Version
+	protected long version = 0;
+	/**
+	*	
+	*/
 
-public String getBrand(){return brand;}
-/**
-*	
-*/
+	protected String brand = "";
+	/**
+	*	
+	*/
 
-public String getPath(){return path;}
-/**
-*	
-*/
+	protected String path = "";
+	/**
+	*	
+	*/
 
-public String getNo(){return no;}
-/**
-*	
-*/
+	protected String no = "";
+	/**
+	*	
+	*/
 
-public String getPlayUrl(){return playUrl;}
-/**
-*	
-*/
+	protected String playUrl = "";
+	/**
+	*	
+	*/
 
-public String getParser(){return parser;}
-/**
-*	
-*/
+	protected String parser = "";
+	/**
+	*	
+	*/
 
-public String getOrigin(){return origin;}
-/**
-*	
-*/
+	protected String origin = "";
+	/**
+	*	
+	*/
 
-public String getParseResult(){return parseResult;}
-/**
-*	
-*/
+	protected String parseResult = "";
+	/**
+	*	
+	*/
 
-public String getWebsite(){return website;}
-/**
-*	
-*/
+	protected String website = "";
+	/**
+	*	
+	*/
 
-public int getPlayCount(){return playCount;}
-/**
-*	
-*/
+	protected int playCount = 0;
+	/**
+	*	
+	*/
 
-public int getQuality(){return quality;}
-/**
-*	
-*/
+	protected int quality = 0;
+	/**
+	*	
+	*/
 
-public int getReadyCount(){return readyCount;}
+	protected int readyCount = 0;
+
+	/**
+	*	主键
+	*/
+
+	public long getId() {
+		return id;
+	}
+
+	/**
+	*	创建时间
+	*/
+
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	/**
+	*	创建者
+	*/
+
+	public long getCreateUserId() {
+		return createUserId;
+	}
+
+	/**
+	*	更新时间
+	*/
+
+	public Date getUpdateTime() {
+		return updateTime;
+	}
+
+	/**
+	*	更新者
+	*/
+
+	public long getUpdateUserId() {
+		return updateUserId;
+	}
+
+	/**
+	*	状态 1有效 0无效 -1作废
+	*/
+
+	public int getStatus() {
+		return status;
+	}
+
+	/**
+	*	姓名
+	*/
+
+	public String getName() {
+		return name;
+	}
+
+	/**
+	*	版本号
+	*/
+
+	public long getVersion() {
+		return version;
+	}
+
+	/**
+	*	
+	*/
+
+	public String getBrand() {
+		return brand;
+	}
+
+	/**
+	*	
+	*/
+
+	public String getPath() {
+		return path;
+	}
+
+	/**
+	*	
+	*/
+
+	public String getNo() {
+		return no;
+	}
+
+	/**
+	*	
+	*/
+
+	public String getPlayUrl() {
+		return playUrl;
+	}
+
+	/**
+	*	
+	*/
+
+	public String getParser() {
+		return parser;
+	}
+
+	/**
+	*	
+	*/
+
+	public String getOrigin() {
+		return origin;
+	}
+
+	/**
+	*	
+	*/
+
+	public String getParseResult() {
+		return parseResult;
+	}
+
+	/**
+	*	
+	*/
+
+	public String getWebsite() {
+		return website;
+	}
+
+	/**
+	*	
+	*/
+
+	public int getPlayCount() {
+		return playCount;
+	}
+
+	/**
+	*	
+	*/
+
+	public int getQuality() {
+		return quality;
+	}
+
+	/**
+	*	
+	*/
+
+	public int getReadyCount() {
+		return readyCount;
+	}
 }

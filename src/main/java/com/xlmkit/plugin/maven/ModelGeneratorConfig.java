@@ -14,7 +14,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 public class ModelGeneratorConfig extends JDBCConfig {
 
-	private List<String> tableNames = new ArrayList<String>();
+	private String tableCondition = "1 = 1";
 	private String packageName;
 	private File distDirectory;
 	private boolean booleanGetterStartWidthIS = true;
@@ -24,7 +24,7 @@ public class ModelGeneratorConfig extends JDBCConfig {
 		Assert.isTrue(!StringUtils.isEmpty(packageName), "[packageName] is empty!");
 		Assert.isTrue(!StringUtils.isEmpty(distDirectory), "[distDirectory] is empty!");
 		Assert.isTrue(!StringUtils.isEmpty(distDirectory), "[distDirectory] is null!");
-		Assert.isTrue(tableNames.size()>0, "[tableNames] is empty!");
+		Assert.isTrue(!StringUtils.isEmpty(tableCondition), "[tableCondition] is empty!");
 		super.validate();
 	}
 

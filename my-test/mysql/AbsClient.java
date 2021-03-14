@@ -11,12 +11,22 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 @MappedSuperclass
-public class AbsVideoRecord {
+public class AbsClient {
 	/**
 	*	主键
 	*/
 
 	protected @Id @GeneratedValue(strategy = GenerationType.IDENTITY) long id = 0;
+	/**
+	*	
+	*/
+
+	protected String no = "";
+	/**
+	*	备注
+	*/
+
+	protected String notes = "";
 	/**
 	*	创建时间
 	*/
@@ -46,7 +56,7 @@ public class AbsVideoRecord {
 	*	姓名
 	*/
 
-	protected BigDecimal duration = BigDecimal.ZERO;
+	protected String name = "";
 	/**
 	*	版本号
 	*/
@@ -57,32 +67,32 @@ public class AbsVideoRecord {
 	*	
 	*/
 
-	protected BigDecimal currentTime = BigDecimal.ZERO;
+	protected String domain = "";
 	/**
 	*	
 	*/
 
-	protected String ip = "";
+	protected String proxyType = "";
 	/**
 	*	
 	*/
 
-	protected String guid = "";
+	protected String realHost = "";
 	/**
 	*	
 	*/
 
-	protected String ipInfo = "";
+	protected int realHostPort = 0;
 	/**
 	*	
 	*/
 
-	protected long videoId = 0;
+	protected String clientKey = "";
 	/**
 	*	
 	*/
 
-	protected boolean firstSign = false;
+	protected int serverport = 0;
 
 	/**
 	*	主键
@@ -90,6 +100,22 @@ public class AbsVideoRecord {
 
 	public long getId() {
 		return id;
+	}
+
+	/**
+	*	
+	*/
+
+	public String getNo() {
+		return no;
+	}
+
+	/**
+	*	备注
+	*/
+
+	public String getNotes() {
+		return notes;
 	}
 
 	/**
@@ -136,8 +162,8 @@ public class AbsVideoRecord {
 	*	姓名
 	*/
 
-	public BigDecimal getDuration() {
-		return duration;
+	public String getName() {
+		return name;
 	}
 
 	/**
@@ -152,47 +178,47 @@ public class AbsVideoRecord {
 	*	
 	*/
 
-	public BigDecimal getCurrentTime() {
-		return currentTime;
+	public String getDomain() {
+		return domain;
 	}
 
 	/**
 	*	
 	*/
 
-	public String getIp() {
-		return ip;
+	public String getProxyType() {
+		return proxyType;
 	}
 
 	/**
 	*	
 	*/
 
-	public String getGuid() {
-		return guid;
+	public String getRealHost() {
+		return realHost;
 	}
 
 	/**
 	*	
 	*/
 
-	public String getIpInfo() {
-		return ipInfo;
+	public int getRealHostPort() {
+		return realHostPort;
 	}
 
 	/**
 	*	
 	*/
 
-	public long getVideoId() {
-		return videoId;
+	public String getClientKey() {
+		return clientKey;
 	}
 
 	/**
 	*	
 	*/
 
-	public boolean getFirstSign() {
-		return firstSign;
+	public int getServerport() {
+		return serverport;
 	}
 }
